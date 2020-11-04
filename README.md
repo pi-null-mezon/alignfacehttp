@@ -1,8 +1,7 @@
 alignfacehttp
 ===
 
-Face alignment http server was designed to make one specific task - face alignment. So, it performs affine transformation of the input image with rescaling.
-As output you will get face with fixed **distance** between eyes, eyes-line will be horizontal and image dimensions will be scaled to **width**x**height**.
+Performs affine transformation of the input image with rescaling. As output you will get face with fixed **distance** between eyes, eyes-line will be horizontal and image dimensions will be scaled to **width**x**height**. Note, that transformation wil be performed only if input image contains single face.
 
 ## How to use
 
