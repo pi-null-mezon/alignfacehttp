@@ -12,7 +12,7 @@ curl -X POST -F file=@mypic.jpg -F distance=90 -F width=300 -F height=400 http:/
 
 # Example
 
-
+<img src="/pictures/feynman.jpg" height="400"> <img src="/pictures/arrow.png" height="400"> <img src="/pictures/aligned.jpeg" height="400">
 
 # Installation
 
@@ -21,7 +21,6 @@ git clohe http://github.com/pi-null-mezon/alignfacehttp.git
 cd alignfacehttp
 sudo docker build -t alignfacehttp --force-rm .
 sudo docker run -p 5000:5000 -d --name alignfacehttp --rm -v ${PWD}:/usr/src/app alignfacehttp
-
 ```
 
 # Thanks
