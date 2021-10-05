@@ -36,8 +36,11 @@ def align():
     if 'width' in flask.request.form:
         target_width = int(flask.request.form['width'])
     target_height = 640
-    if 'width' in flask.request.form:
+    if 'height' in flask.request.form:
         target_height = int(flask.request.form['height'])
+    shift = 0.1
+    if 'shift' in flask.request.form:
+        shift = float(flask.request.form['shift'])
     img = cv2.imdecode(numpy.frombuffer(file.read(), numpy.uint8), cv2.IMREAD_COLOR)
     if img.shape[0] == 0 or img.shape[1] == 0:
         return flask.jsonify({'Status': 'Error', 'info': 'image can not be decoded'}), 400
@@ -55,7 +58,7 @@ def align():
     angle = 180.0 * numpy.arctan((lpt.y - rpt.y) / (lpt.x - rpt.x)) / numpy.pi
     # print(f"angle: {angle}")
     cpt = (rpt + lpt) / 2
-    cpt.y *= 1.1
+    cpt.y += d.height()*shift
     scale = target_eyes_dst / eyes_dst
     rmatrix = cv2.getRotationMatrix2D((cpt.x, cpt.y), angle, scale)
     rmatrix[0, 2] += target_width / 2.0 - cpt.x
