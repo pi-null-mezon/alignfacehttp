@@ -21,7 +21,7 @@ predictor = dlib.shape_predictor(os.getenv('SHAPE_PREDICTOR_MODEL', '/models/sha
 
 @app.route("/status", methods=['GET'])
 def status():
-    return flask.jsonify({'status': 'Success', 'name': 'facealign', 'version': '1.0.0.0'}), 200
+    return flask.jsonify({'status': 'Success', 'name': 'alignface-service', 'version': '1.0.0.0'}), 200
 
 
 @app.route("/align", methods=['POST'])

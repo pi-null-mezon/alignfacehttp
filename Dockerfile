@@ -3,6 +3,7 @@ FROM python:3-slim
 WORKDIR /usr/src/app
 
 COPY requirements.txt .
+COPY httpsrv.py /usr/src/app/httpsrv.py
 
 RUN apt-get update && \
     apt-get install libglib2.0-0 libgl1-mesa-dev build-essential cmake wget bzip2 -y && \
